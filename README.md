@@ -1,20 +1,28 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🌍 Climate Twin AI
 
-# Run and deploy your AI Studio app
+An AI-powered climate intelligence web application built using Google AI Studio and React.
 
-This contains everything you need to run your app locally.
+## 🚀 Tech Stack
+- Google AI Studio
+- React
+- TypeScript
+- Vite
 
-View your app in AI Studio: https://ai.studio/apps/f714d086-b26e-41eb-adf8-b8de7702eb4d
+## ✨ Features
+- AI-powered climate insights
+- Interactive dashboard
+- Responsive user interface
+- Modern web application
 
-## Run Locally
+## 📖 About
+Climate Twin AI is a learning project created using Google AI Studio and React to explore AI-assisted application development and climate intelligence concepts.
 
-**Prerequisites:**  Node.js
+## 🛠️ Installation
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 👩‍💻 Author
+Sandhya Panchal
