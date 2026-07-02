@@ -1,0 +1,6 @@
+{
+  "name": "Climate Twin AI",
+  "description": "Digital Climate Twin for Smart Farming - monitor crops, soil moisture, local weather forecasts, and receive AI recommendations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
