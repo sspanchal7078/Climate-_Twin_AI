@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   CloudRain, 
   Droplets, 
@@ -53,6 +53,33 @@ export default function DashboardScreen({ farmerName, onNavigateToTab }: Dashboa
 
   // Dynamic simulation controls to let the evaluator test soil variations
   const [currentMoisture, setCurrentMoisture] = useState<number>(selectedZone.soilMoisture);
+
+  // Dynamic clock state and effect
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatDateTime = (date: Date) => {
+    const dateOptions: Intl.DateTimeFormatOptions = {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    };
+    const timeOptions: Intl.DateTimeFormatOptions = {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    const formattedDate = date.toLocaleDateString('en-US', dateOptions);
+    const formattedTime = date.toLocaleTimeString('en-US', timeOptions);
+    return `${formattedDate} — ${formattedTime}`;
+  };
   
   const handleZoneClick = (zone: FarmZone) => {
     setSelectedZone(zone);
@@ -85,7 +112,7 @@ export default function DashboardScreen({ farmerName, onNavigateToTab }: Dashboa
         <div className="flex items-center gap-3">
           <div className="text-right hidden sm:block">
             <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold font-mono uppercase tracking-wider">Current Time (Local)</div>
-            <div className="text-sm font-bold text-slate-800 dark:text-slate-200">June 29, 2026 — 06:17 AM</div>
+            <div className="text-sm font-bold text-slate-800 dark:text-slate-200">{formatDateTime(currentTime)}</div>
           </div>
           <button 
             onClick={handleSimulateIrrigation}
